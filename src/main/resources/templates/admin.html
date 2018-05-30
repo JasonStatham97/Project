@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<style>
+ .div1{
+
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+.div2{
+
+     margin-top: 200px;
+     margin-bottom: 200px;
+ }
+ .footer{
+            position:absolute;
+            bottom: 0;
+
+            left: 0;
+            right: 0;
+        }
+</style>
+
+
+<head>
+	<meta charset="utf-8">
+	<title>Swift_Management|admin|</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image: url('http://img5.duitang.com/uploads/item/201411/06/20141106104720_WHEe2.jpeg');opacity: 0.8">
+<div style="size: 50px">&nbsp;</div>
+<div class="container " style="opacity: 0.9;">
+	<div class="jumbotron col-md-12 ">
+        <h1><span ></span><span class="glyphicon glyphicon-home">&nbsp;</span><b>Swift_Management|Admin|</b></h1>
+        <hr style="height : 10px"/>
+       <h4><span></span></h4>
+
+	<div class="col-md-12 col-md-offset-2 div1">
+		<p class="col-md-12 col-md-offset-2">现在选择你希望进行的操作。</p>
+        <div class="btn-group">
+            <button type="button" data-toggle="modal" class="btn btn btn-primary btn-lg" id="bt1"  data-target="#model1" >注册信息修改</button>
+            <button type="button" data-toggle="modal" class="btn btn-success btn-lg" id="bt1"  data-target="#model2" >&nbsp&nbsp添加数据&nbsp&nbsp</button>
+            <button type="button" data-toggle="modal" class="btn btn-warning btn-lg" id="bt2" data-target="#model3" >&nbsp&nbsp删除数据&nbsp&nbsp</button>
+            <button type="button" data-toggle="modal" class="btn btn-danger btn-lg" id="bt3" data-target="#model4" >&nbsp&nbsp更新数据&nbsp&nbsp</button>
+            <a class="btn btn-info btn-lg" href="/searchJump">&nbsp&nbsp查询数据&nbsp&nbsp</a>
+        </div>
+        <br>
+        <br>
+
+        </div>
+        <div id="test"><h2 th:text = "${message}" class="text-info  text-center"></h2></div>
+    </div>
+
+</div>
+
+<div style="background-color: black;opacity: 0.3;" class="footer">
+        <h3 class="panel-title text-center" style="color: white"><b><i>©Swift_Management 2018 余谦 雷岳祥 Bootstrap SpringBoot</i></b></h3>
+</div>
+<!--以下是四个不同的模态框代码-->
+<!--用户信息修改模态框-->
+<div class="modal fade" id="model1" tabindex="-1" role="dialog" aria-labelledby="用户信息修改" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        用户信息修改
+                    </h4>
+                </div>
+                <div class="modal-body">
+                        <form  onsubmit="return justUsername()" name="form1"  class="bs-example bs-example-form " role="form"  method="post" action="/renewuser">
+                            <div class="input-group  ">
+                                    <span class="input-group-addon" ><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control" name="username" placeholder="Username" autofocus="autofocus">
+                                </div>
+                                <br>
+                            <div class="input-group  ">
+                                <span class="input-group-addon" ><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;新用户名&nbsp;&nbsp;&nbsp;</span>
+                                <input type="text" class="form-control" name="username2" placeholder="在此输入新用户名(如果想修改的话)" autofocus="autofocus">
+                            </div>
+                            <br>
+                            <div class="input-group" >
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;新密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <input type="password" class="form-control"  name="password" placeholder="New Password">
+                            </div>
+                            <br>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button class="btn btn-danger " type="submit">
+                        提交更改
+                    </button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div><!--用户信息修改模态框-->
+    <!--信息添加模态框-->
+    <div class="modal fade" id="model2" tabindex="-1" role="dialog" aria-labelledby="添加数据" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            数据添加
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                            <form  onsubmit="return justId()" name="form3"  class="bs-example bs-example-form " role="form"  method="post" action="/insert">
+                                <div class="input-group  ">
+                                        <span class="input-group-addon" ><span class="glyphicon glyphicon-barcode"></span>&nbsp;&nbsp;学号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        <input type="text" class="form-control" name="studentno" placeholder="ID" autofocus="autofocus">
+                                    </div>
+                                    <br>
+                                <div class="input-group  ">
+                                    <span class="input-group-addon" ><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control" name="name" placeholder="学生姓名" autofocus="autofocus">
+                                </div>
+                                <br>
+                                <div class="input-group  ">
+                                    <span class="input-group-addon" ><span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;性别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control" name="sex" placeholder="性别" autofocus="autofocus">
+                                </div>
+                                <br>
+                                <div class="input-group" >
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span>&nbsp;&nbsp;班级&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control"  name="classno" placeholder="班级">
+                                </div>
+                                <br>
+                                <div class="input-group" >
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;专业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        <input type="text" class="form-control"  name="major" placeholder="专业">
+                                    </div>
+                                    <br>
+                                <div class="input-group" >
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;籍贯&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <input type="text" class="form-control"  name="address" placeholder="籍贯">
+                                        </div>
+                                    <br>
+                                    <div class="input-group" >
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-road"></span>&nbsp;入学年份</span>
+                                            <input type="text" class="form-control"  name="date" placeholder="入学年份">
+                                        </div>
+                                    <br>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                        <button type="submit" class="btn btn-warning ">
+                            提交更改
+                        </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+         <!--信息添加模态框-->
+        <!--数据删除模态框-->
+        <div class="modal fade" id="model3" tabindex="-1" role="dialog" aria-labelledby="数据删除" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                数据删除
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                                <form  onsubmit="return justId()" name="form3"  class="bs-example bs-example-form " role="form"  method="post" action="/delete">
+                                    <div class="input-group  ">
+                                            <span class="input-group-addon" ><span class="glyphicon glyphicon glyphicon-barcode"></span>&nbsp;&nbsp;学号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <input type="text" class="form-control" name="studentno" placeholder="输入学号，学号作为主码，作为唯一识别码，将删除学生信息" autofocus="">
+                                        </div>
+                                        <br>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button  class="btn btn-warning " type="submit">
+                                提交更改
+                            </button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div><!--数据删除模态框-->
+            <!--信息更新模态框-->
+    <div class="modal fade" id="model4" tabindex="-1" role="dialog" aria-labelledby="信息更新" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                          信息更新
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                            <form  onsubmit="return justId()" name="form3"  class="bs-example bs-example-form " role="form"  method="post" action="/update">
+
+                                <div class="input-group  ">
+                                    <span class="input-group-addon" ><span class="glyphicon glyphicon-barcode"></span>&nbsp;&nbsp;学号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control" name="studentno" placeholder="学号" autofocus="autofocus">
+                                </div>
+                                <br>
+                                <div class="input-group  ">
+                                    <span class="input-group-addon" ><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control" name="name" placeholder="学生姓名" autofocus="autofocus">
+                                </div>
+                                <br>
+                                <div class="input-group  ">
+                                    <span class="input-group-addon" ><span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;性别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control" name="sex" placeholder="性别" autofocus="autofocus">
+                                </div>
+                                <br>
+                                <div class="input-group" >
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span>&nbsp;&nbsp;班级&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control"  name="classno" placeholder="班级">
+                                </div>
+                                <br>
+                                <div class="input-group" >
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;专业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        <input type="text" class="form-control"  name="major" placeholder="专业">
+                                    </div>
+                                    <br>
+                                <div class="input-group" >
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;籍贯&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <input type="text" class="form-control"  name="address" placeholder="籍贯">
+                                        </div>
+                                    <br>
+                                    <div class="input-group" >
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-road"></span>&nbsp;入学年份</span>
+                                            <input type="text" class="form-control"  name="date" placeholder="入学年份">
+                                        </div>
+                                    <br>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                        <button type="submit" class="btn btn-danger ">
+                            提交更改
+                        </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+         <!--信息更新模态框-->
+<!--以上是四个不同的模态框代码-->
+</body>
+<script>
+    /*function justUsername(){
+        var x = document.forms["form1"]["username"].value;
+        if(x==null||x==""){
+            alert("用户名不能为空！");
+                return false;
+        }
+    }
+    function justId(){
+        var x3 = document.forms["form3"]["id"].value;
+        if(x3==null||x3==""){
+            alert("学号不能为空！！！");
+                return false ;
+        }else{
+            if(x3.length < 10)
+            alert("请输入正确的学号！！！");
+            return false ;
+        }
+    }*/
+
+    $(document).ready(function(){//页面加载完之后，自动执行该方法
+        setTimeout(function(){$("#test").hide();},2000);//2秒后执行该方法
+    });
+
+</script>
+</html>

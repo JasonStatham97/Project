@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org"  xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8">
+	<title>错误页面</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../static/css/js/jquery.mkinfinite.js"></script>
+	<style>
+		#divcss5 {
+			position: absolute;
+			top: 20%;
+			left: 20%;
+		}
+	</style>
+</head>
+
+<body style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527648709&di=c50c557b1cc7722557ae609082ca5654&src=http://ps3.tgbus.com/UploadFiles/201106/20110629193827798.jpg'); ">
+<div class="jumbotron" id="divcss5" style="background:rgba(0, 0, 0, 1);opacity: 0.7">
+	<div class="container" >
+		<h1 class="text-primary" style="color: white;font-size: 90px"><strong>|403|</strong> <strong>『ERROR错误页面』</strong></h1>
+
+		<hr style="height:1px;border:none;border-top:10px solid #FFFFFF;" />
+		<p></p>
+		<br>
+		<br>
+		<h2 style="color: #6495ED">错误信息:</h2>
+		<i><p th:text="${message}" style="color:#EBEBEB"></p></i>
+		<p><a class="btn btn-default btn-lg btn-block" role="button" onclick ="javascript:history.back(-1)">
+			返回上一级</a>
+		</p>
+	</div>
+</div>
+
+</body>
+
+</html>

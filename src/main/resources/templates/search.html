@@ -1,0 +1,94 @@
+﻿
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Swift_Management|admin|</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/css/js/jquery.mkinfinite.js"></script>
+<style>  
+        .div1{  
+            
+           margin-top: 80px;  
+           margin-bottom: 80px;  
+       }  
+       .div2{  
+            
+            margin-top: 200px;  
+            margin-bottom: 200px;  
+        }
+        .main{
+           margin-top:5%;
+        }  
+        .rooter{
+            position:absolute;
+            bottom: 0;
+            
+            left: 0;
+            right: 0;
+        }
+       </style>  
+       <script>
+
+           $(document).ready(function(){
+               $("#bt").click(function(){
+
+                   $("#dbt2").fadeToggle("slow");
+
+               });
+           });
+       </script>
+</head>
+<body style="background-image: url('http://img.zcool.cn/community/038c0ee5744f9a500000025ae5acd2a.jpg');background-size: cover;">
+
+<div class=" container main" >
+	<div class=" jumbotron col-md-12 " style="background:rgba(0, 0, 0, 0)">
+        <h1><span></span>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-home" style="color:">&nbsp;</span><b style="color：black">Swift_Management|User|</b></h1>
+
+        <hr style="height:1px;border:none;border-top:5px solid #555555;" />
+       <h4><span ></span></h4> 
+       <div style="padding: 100px 100px 10px;">
+            <form class="bs-example bs-example-form" role="form" action="/search" method = "post">
+                <div class="input-group input-group-lg" >
+                    
+                    <input type="text" class="form-control input-lg"   name= "message" style="background:rgba(0, 0, 0, 0);color:black " placeholder="输入您想要检索的信息！" autofocus="autofocus">
+                    
+					<span class="input-group-btn">
+						<button class="btn btn-primary btn-lg" type="submit">
+						&nbsp&nbsp	&nbsp&nbsp查询&nbsp&nbsp&nbsp&nbsp
+						</button>
+                        <button class="btn btn-warning btn-lg" type ="button"
+                                onclick="show()" id = "bt">
+							使用技巧
+						</button>
+					</span>
+
+                </div>
+                <br>
+                <div class="panel panel-primary" style="display:none" id = "dbt2">
+                <div class="panel-heading" style=" ">
+                    <h3 class="panel-title text-center">使用技巧</h3>
+                </div>
+                <div class="panel-body">
+                          1.检索姓名 格式->姓名：余谦<br>
+                          2.检索所有男生 格式->性别：男<br>
+                          3.依次类推，可供检索的关键字有：姓名,学号,班级，专业,籍贯,年份(入学年份),性别<br>
+                          4.输入空将会显示所有学生信息<br>
+                          5.省份省略省字,例如我想检索黑龙江省的学生则输入:籍贯：黑龙江,即可(注意符号都是英文符)<br>
+                </div>
+            </div>
+
+            </form>
+        </div>
+
+        
+   </div>
+</div>
+ 
+<div style="background-color: black;opacity: 0.3;" class="rooter">
+        <h3 class="panel-title text-center" style="color: white"><b><i>©Swift_Management 2018 余谦 雷岳祥 Bootstrap SpringBoot</i></b></h3>
+</div>
+</body>
+</html>

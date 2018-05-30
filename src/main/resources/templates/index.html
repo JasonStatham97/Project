@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <title>信息管理系统</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        function signin() {
+            var x = document.forms["form1"]["username"].value;
+            var x2 = document.forms["form1"]["password"] .value;
+            var x3 = document.forms["form1"]["cpassword"] .value;
+            if(x==null || x==""){
+                alert("用户名不能为空！");
+                return false;
+            }else{
+                if(x.length<4)
+                {alert("用户名长度必须大于四个字节！");return false;}
+                else
+                {
+                    if(x2.length<6){
+                        alert("密码长度应该大于六位！");
+                        return false;
+                    }
+                    if(x2!=x3){
+                        alert("两次密码输入不一致！");
+                        return false;
+                    }
+                }
+
+            }
+
+
+
+        }
+
+    </script>
+   <style>
+       .div1{filter:alpha(Opacity=50);-moz-opacity:0.9;opacity: 0.9;}
+       .more-pens {
+           position: fixed;
+           left: 20px;
+           bottom: 20px;
+           z-index: 10;
+           font-family: "Montserrat";
+           font-size: 12px;
+       }
+
+       a.white-mode, a.white-mode:link, a.white-mode:visited, a.white-mode:active {
+           font-family: "Montserrat";
+           font-size: 12px;
+           text-decoration: none;
+           background: #212121;
+           padding: 4px 8px;
+           color: #f7f7f7;
+       }
+       a.white-mode:hover, a.white-mode:link:hover, a.white-mode:visited:hover, a.white-mode:active:hover {
+           background: #edf3f8;
+           color: #212121;
+       }
+
+       body {
+           margin: 0;
+           padding: 0;
+           overflow: hidden;
+           width: 100%;
+           height: 100%;
+           background: #000000;
+       }
+
+       .title {
+           z-index: 10;
+           position: absolute;
+           left: 50%;
+           top: 50%;
+           transform: translateX(-50%) translateY(-50%);
+           font-family: "Montserrat";
+           text-align: center;
+           width: 100%;
+       }
+       .col-center-block {
+           float: none;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+       }
+       .title h1 {
+           position: relative;
+           color: #EEEEEE;
+           font-weight: 600;
+           font-size: 60px;
+           padding: 0;
+           margin: 0;
+           line-height: 1;
+           text-shadow: 0 0 30px #000155;
+       }
+       .title h1 span {
+           font-weight: 600;
+           padding: 0;
+           margin: 0;
+           color: #BBB;
+       }
+       .title h3 {
+           font-weight: 200;
+           font-size: 20px;
+           padding: 0;
+           margin: 0;
+           line-height: 1;
+           color: #EEEEEE;
+           letter-spacing: 2px;
+           text-shadow: 0 0 30px #000155;
+       }
+   </style>
+
+
+
+</head>
+<body class="pre-scrollable">
+<div class="title ">
+    <div class="container ">
+        <div class="row clearfix ">
+            <div class="col-md-12 column">
+
+
+                <h1>
+                    <span class="glyphicon glyphicon-book"></span>
+                    Swift_Management信息管理系统
+                </h1>
+                <br/><br/><br/>
+                <h3 class="">
+                    To be effective，is the job of the executive<br/>
+                </h3> <h4 class=" text-right">----Mr.Nobody</h4>
+                <div class="btn-group">
+                    <button type="button" data-toggle="modal" class="btn btn-success btn-lg" id="bt1"  data-target="#demo" >用户注册&nbsp&nbsp</button>
+                    <button type="button" data-toggle="modal" class="btn btn-warning btn-lg" id="bt2" data-target="#demo2" >用户登录&nbsp&nbsp</button>
+                    <button type="button" data-toggle="modal" class="btn btn-danger btn-lg" id="bt3" data-target="#demo3" >管理员入口</button>
+                </div>
+                <br/>
+                <br/>
+            
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <div class="modal fade" id="demo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-user"></span>
+                    用户注册
+                </h4>
+            </div>
+           <div  class="">
+                    <div  class=" col-md-offset-2"  >
+                        <form  onsubmit="return signin()" name="form1"  class="bs-example bs-example-form " role="form" style="width: 80%" method="post" action="/signin">
+                            <div class="input-group  ">
+                                <span class="input-group-addon" ><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户名&nbsp;&nbsp;&nbsp;</span>
+                                <input type="text" class="form-control" name="username" placeholder="Username" autofocus="autofocus">
+                            </div>
+                            <br>
+                            <div class="input-group" >
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <input type="password" class="form-control"  name="password" placeholder="Password">
+                            </div>
+                            <br>
+                            <div class="input-group" >
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;确认密码</span>
+                                <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password">
+                            </div>
+                            <br>
+
+                            <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;关闭
+                      </button>
+                      <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> 
+                    点击注册
+                </button>
+            </div>
+                        </form>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+ <div   class="modal fade" id="demo2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-user"></span>
+                    用户登录
+                </h4>
+            </div>
+            <div  class="">
+                <div  class=" col-md-offset-2"  >
+                    <form name = "form2" onsubmit="signin2()" class="bs-example bs-example-form " role="form" style="width: 70%" method="post" action="/login">
+                        <div class="input-group  ">
+                            <span class="input-group-addon" ><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户名&nbsp;&nbsp;&nbsp;</span>
+                            <input type="text" class="form-control" name="username" placeholder="Please enter your username！" autofocus="autofocus">
+                        </div>
+                        <br>
+                        <div class="input-group" >
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <input type="password" class="form-control" name="password" placeholder="Please enter your password！">
+                        </div>
+                        <br>
+
+                        <br/>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;关闭
+                            </button>
+                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>
+                                点击登录
+                            </button>
+                            <span th:text="${status}"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="demo3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-user"></span>
+                    管理员登陆
+                </h4>
+            </div>
+            <div  class="">
+                <div  class=" col-md-offset-2"  >
+                    <form class="bs-example bs-example-form " role="form" style="width: 70%" method="post" action="/adlogin">
+                        <div class="input-group  ">
+                            <span class="input-group-addon" ><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户名&nbsp;&nbsp;&nbsp;</span>
+                            <input type="text" class="form-control" name="username" placeholder="Please enter your username！" autofocus="autofocus">
+                        </div>
+                        <br>
+                        <div class="input-group" >
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <input type="password" class="form-control" name="password" placeholder="Please enter your password！">
+                        </div>
+                        <br>
+
+                        <br/>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;关闭
+                            </button>
+                            <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-ok"></span>
+                                管理员登录
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script >
+    let max_particles    = 100;
+    let particles        = [];
+    let frequency        = 100;
+    let init_num         = max_particles;
+    let max_time         = frequency*max_particles;
+    let time_to_recreate = false;
+
+    // Enable repopolate
+    setTimeout(function(){
+        time_to_recreate = true;
+    }.bind(this), max_time)
+
+    // Popolate particles
+    popolate(max_particles);
+
+    var tela = document.createElement('canvas');
+    tela.width = $(window).width();
+    tela.height = $(window).height();
+    $("body").append(tela);
+
+    var canvas = tela.getContext('2d');
+
+    class Particle{
+        constructor(canvas, options){
+            let colors = ["#feea00","#a9df85","#5dc0ad", "#ff9a00","#fa3f20"]
+            let types  = ["full","fill","empty"]
+            this.random = Math.random()
+            this.canvas = canvas;
+            this.progress = 0;
+
+            this.x = ($(window).width()/2)  + (Math.random()*200 - Math.random()*200)
+            this.y = ($(window).height()/2) + (Math.random()*200 - Math.random()*200)
+            this.w = $(window).width()
+            this.h = $(window).height()
+            this.radius = 1 + (8*this.random)
+            this.type  = types[this.randomIntFromInterval(0,types.length-1)];
+            this.color = colors[this.randomIntFromInterval(0,colors.length-1)];
+            this.a = 0
+            this.s = (this.radius + (Math.random() * 1))/10;
+            //this.s = 12 //Math.random() * 1;
+        }
+
+        getCoordinates(){
+            return {
+                x: this.x,
+                y: this.y
+            }
+        }
+
+        randomIntFromInterval(min,max){
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
+
+        render(){
+            // Create arc
+            let lineWidth = 0.2 + (2.8*this.random);
+            let color = this.color;
+            switch(this.type){
+                case "full":
+                    this.createArcFill(this.radius, color)
+                    this.createArcEmpty(this.radius+lineWidth, lineWidth/2, color)
+                    break;
+                case "fill":
+                    this.createArcFill(this.radius, color)
+                    break;
+                case "empty":
+                    this.createArcEmpty(this.radius, lineWidth, color)
+                    break;
+            }
+        }
+
+        createArcFill(radius, color){
+            this.canvas.beginPath();
+            this.canvas.arc(this.x, this.y, radius, 0, 2 * Math.PI);
+            this.canvas.fillStyle = color;
+            this.canvas.fill();
+            this.canvas.closePath();
+        }
+
+        createArcEmpty(radius, lineWidth, color){
+            this.canvas.beginPath();
+            this.canvas.arc(this.x, this.y, radius, 0, 2 * Math.PI);
+            this.canvas.lineWidth = lineWidth;
+            this.canvas.strokeStyle = color;
+            this.canvas.stroke();
+            this.canvas.closePath();
+        }
+
+        move(){
+
+            this.x += Math.cos(this.a) * this.s;
+            this.y += Math.sin(this.a) * this.s;
+            this.a += Math.random() * 0.4 - 0.2;
+
+            if(this.x < 0 || this.x > this.w - this.radius){
+                return false
+            }
+
+            if(this.y < 0 || this.y > this.h - this.radius){
+                return false
+            }
+            this.render()
+            return true
+        }
+
+        calculateDistance(v1, v2){
+            let x = Math.abs(v1.x - v2.x);
+            let y = Math.abs(v1.y - v2.y);
+            return Math.sqrt((x * x) + (y * y));
+        }
+    }
+
+    /*
+     * Function to clear layer canvas
+     * @num:number number of particles
+     */
+    function popolate(num){
+        for (var i = 0; i < num; i++) {
+            setTimeout(
+                function(x){
+                    return function(){
+                        // Add particle
+                        particles.push(new Particle(canvas))
+                    };
+                }(i)
+                ,frequency*i);
+        }
+        return particles.length
+    }
+
+    function clear(){
+        // canvas.globalAlpha=0.04;
+        canvas.fillStyle='#111111';
+        canvas.fillRect(0, 0, tela.width, tela.height);
+        // canvas.globalAlpha=1;
+    }
+
+    function connection(){
+        let old_element = null
+        $.each(particles, function(i, element){
+            if(i>0){
+                let box1 = old_element.getCoordinates()
+                let box2 = element.getCoordinates()
+                canvas.beginPath();
+                canvas.moveTo(box1.x,box1.y);
+                canvas.lineTo(box2.x,box2.y);
+                canvas.lineWidth = 0.45;
+                canvas.strokeStyle="#3f47ff";
+                canvas.stroke();
+                canvas.closePath();
+            }
+
+            old_element = element
+        })
+    }
+
+    /*
+     * Function to update particles in canvas
+     */
+    function update(){
+        clear();
+        connection()
+        particles = particles.filter(function(p) { return p.move() })
+        // Recreate particles
+        if(time_to_recreate){
+            if(particles.length < init_num){ popolate(1);}
+        }
+        requestAnimationFrame(update.bind(this))
+    }
+
+    update()
+</script>
+<script>
+
+</script>
+
+</body>
+</html>
+
